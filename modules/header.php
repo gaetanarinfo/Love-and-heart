@@ -10,7 +10,7 @@
   <meta name="author" content="Gaëtan Seigneur">
   <meta name="robots" content="noindex, nofollow">
 
-  <link rel="canonical" href="https://love-and-heart.store/">
+  <link rel="canonical" href="https://love-and-heart.fr/">
 
   <!-- Icon -->
   <script src="<?= $static_url ?>js/9d1d83a1dd.js" crossorigin="anonymous"></script>
@@ -54,13 +54,26 @@
       "@context": "https://www.schema.org",
       "@type": "Website",
       "name": "Love and heart.fr - Site de Rencontre",
-      "url": "https://love-and-heart.store/",
+      "url": "https://love-and-heart.fr/",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://love-and-heart.store/faq/?query={search}",
+        "target": "https://love-and-heart.fr/faq/?query={search}",
         "query-input": "required name=search"
       }
     }
+  </script>
+
+  <script data-ad-client="ca-pub-4139181293520081" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4139181293520081" crossorigin="anonymous"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TV9SD7BM7X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-TV9SD7BM7X');
   </script>
 
 </head>
