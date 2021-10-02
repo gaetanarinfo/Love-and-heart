@@ -1,9 +1,14 @@
 <?php
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+include '../config/config.php';
+include '../config/fonctions.php';
+include '../config/connexion.php';
 
-$valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp', 'pdf', 'doc', 'ppt'); // valid extensions
+date_default_timezone_set('Europe/Paris');
+setlocale(LC_TIME, 'fra_fra');
+
+
+$valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp'); // valid extensions
 $path =  __DIR__ . '/../assets/uploads/'; // upload directory
 
 if ($_FILES['photo']) {
@@ -21,17 +26,22 @@ if ($_FILES['photo']) {
       $path = $path . strtolower($final_image);
 
       if (move_uploaded_file($tmp, $path)) {
-         // echo "<img src='$path' />";
-         // $name = $_POST['name'];
-         // $email = $_POST['email'];
 
-         //include database configuration file
-         // include_once 'db.php';
+         echo $final_image;
 
-         //insert form data in the database
-         // $insert = $db->query("INSERT uploading (name,email,file_name) VALUES ('".$name."','".$email."','".$path."')");
+         $db->query('INSERT INTO `users_avatar`(
+            `id`,
+            `user_id`,
+            `value`,
+            `created_at`
+            ) VALUES (
+            NULL,
+            "' . $_SESSION['user_id'] . '",
+            "' . $final_image . '",
+            "' . date('Y-m-d H:i:s') . '"
+            )');
 
-         echo 'ok';
+
       }
    } else {
       echo 'invalid';

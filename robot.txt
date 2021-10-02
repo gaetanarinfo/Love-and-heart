@@ -1,7 +1,11 @@
 User-Agent: *
-Disallow: /assets/css/
-Disallow: /assets/js/
-Disallow: /config/
-Disallow: /mail/
-Disallow: /modules/
-Disallow: /pages/
+Allow: /ads/preferences/
+Allow: /gpt/
+Allow: /pagead/show_ads.js
+Allow: /pagead/js/adsbygoogle.js
+Allow: /pagead/js/*/show_ads_impl.js
+Allow: /static/glade.js
+Allow: /static/glade/
+Allow: /tag/js/
+Disallow: /
+Noindex: /
