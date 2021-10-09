@@ -13,7 +13,7 @@ include '../config/connexion.php';
 require_once('../paiement/init.php');
 
 // This is your real test secret API key_id.
-\Stripe\Stripe::setApiKey('sk_test_51Jc2kML6rsNO3EBkVY7cW3v8V1otBO3DlOZwLU0lUXdNcqVeudtozSs4DybnecxjTsjzcwh4FkmewQmHDS282XLR00HXRoXWdz');
+\Stripe\Stripe::setApiKey('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');
 
 if (!empty($_POST) && !empty($_POST['transaction_id'])) {
 

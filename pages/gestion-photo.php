@@ -22,7 +22,7 @@
     <?php include_once('modules/profil-avatar.php'); ?>
 
         <div class="col-lg-8">
-            <div class="profil_gestion">
+            <div class="profil_gestion<?= ($premium->get_user() == "0") ? " essentiel" : "" ?>">
                 <h3><i class="fas fa-camera-retro me-2"></i>Gérer ma photo de profil</h3>
 
                 <div class="alert alert-danger" id="alert_danger" style="display: none;" role="alert">

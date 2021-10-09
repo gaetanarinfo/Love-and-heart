@@ -13,7 +13,7 @@ header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 require_once('../paiement/init.php');
 
-$api_prod = "sk_test_51Jc2kML6rsNO3EBkVY7cW3v8V1otBO3DlOZwLU0lUXdNcqVeudtozSs4DybnecxjTsjzcwh4FkmewQmHDS282XLR00HXRoXWdz";
+$api_prod = "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";
 
 // This is your real test secret API key.
 \Stripe\Stripe::setApiKey($api_prod);
@@ -27,7 +27,7 @@ $json_obj = json_decode($json_str);
 //json_encode($json_obj->items[0]->amount)
 
 $token = $_POST['stripeToken'];
-$email = $_POST['stripeEmail'];
+$email = $_SESSION['email'];
 
 try {
 
@@ -43,7 +43,7 @@ try {
 	try {
 		$customer = \Stripe\Customer::create(array(
 			'email' => $email,
-			"description" => $formule['name'] . ' ' . $formule['duration'] . str_replace('.', ',', $formule['price_per_month']) . ' €',
+			"description" => $formule['name'] . ' ' . $formule['duration'] . ' ' . str_replace('.', ',', $formule['price_per_month']) . ' €',
 			'source' => $token,
 		));
 
@@ -63,7 +63,7 @@ try {
 					"customer" => $customer->id,
 					"items" => array(
 						array(
-							"price" => "price_1JfPTCL6rsNO3EBkVZrUaAeu",
+							"price" => "price_1JiDNWL6rsNO3EBknAmzGtQA",
 						),
 					),
 				));
@@ -76,7 +76,7 @@ try {
 					"customer" => $customer->id,
 					"items" => array(
 						array(
-							"price" => "price_1JfPVXL6rsNO3EBkwXib9o0H",
+							"price" => "price_1JiDMIL6rsNO3EBknssRKH42",
 						),
 					),
 				));

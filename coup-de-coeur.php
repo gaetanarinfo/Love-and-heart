@@ -19,7 +19,7 @@ if(empty($result_favorites)) {
 $result = selectDB('*', 'users', 'id = "' . $_SESSION['user_id'] . '"', $db, '1');
 
 // Select de l'avatar
-$result_avatar = selectDB('*', 'users_avatar', 'user_id = "' . $_SESSION['user_id'] . '"', $db, '1');
+$result_avatar = selectDB('*', 'users_avatar', 'user_id = "' . $_SESSION['user_id'] . '" ORDER BY created_at DESC', $db, '1');
 
 // Select de pays
 $result_pays = selectDB('*', 'pays', '1 ORDER BY id ASC', $db, '*');

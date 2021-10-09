@@ -13,7 +13,7 @@ if(empty($_SESSION['user_id'])) {
 $result = selectDB('*', 'users', 'id = "' . $_SESSION['user_id'] . '"', $db, '1');
 
 // Select de l'avatar
-$result_avatar = selectDB('*', 'users_avatar', 'user_id = "' . $_SESSION['user_id'] . '" ORDER BY id DESC', $db, '1');
+$result_avatar = selectDB('*', 'users_avatar', 'user_id = "' . $_SESSION['user_id'] . '" ORDER BY created_at DESC', $db, '1');
 
 // Select de recherche
 $result_recherche = selectDB('*', 'civilites', '1 ORDER BY id ASC', $db, '*');
@@ -71,6 +71,7 @@ $ideal_poids = new User();
 $ideal_fume = new User();
 $ideal_demarquation = new User();
 $premium = new User();
+$loisirs = new User();
 
 $avatar = new Avatar();
 $avatar_validation = new Avatar();
@@ -93,6 +94,7 @@ $origine->set_var($result['origine']);
 $nationalite->set_var($result['nationalite']);
 $religion->set_var($result['religion']);
 $cigarette->set_var($result['cigarette']);
+$loisirs->set_var($result['loisirs']);
 $ideal_age_day->set_var($result['ideal_age_day']);
 $ideal_age_byday->set_var($result['ideal_age_byday']);
 $ideal_status_marital->set_var($result['ideal_status_marital']);

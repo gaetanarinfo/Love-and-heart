@@ -596,21 +596,6 @@
     </div>
 </section>
 
-<section class="mobile_pres3 pt-4 mt-0">
-    <div class="container">
-        <div class="row">
-            <div class="text-end col-lg mt-3 pt-2">
-                <h3>Partagez un tête-à-tête en vidéo</h3>
-                <p class="mobile_pres2_p text-end float-end">Grâce aux appels vidéo sur Love and heart, découvrez pour la première fois ses réactions, en toute sérénité.</p>
-            </div>
-
-            <div class="text-center col mb-3 pb-2">
-                <img class="mobile_pres2_img" src="/assets/img/video-chat-bf696929737.svg">
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="mobile_pres4 py-5">
     <div class="container">
         <div class="row">

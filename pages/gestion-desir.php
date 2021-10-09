@@ -21,7 +21,7 @@
     <div class="row g-4 my-5 row-cols-1 row-cols-lg-3 show_mobile">
         <?php include_once('modules/profil-avatar.php'); ?>
         <div class="col-lg-8">
-            <div class="profil_gestion">
+            <div class="profil_gestion<?= ($premium->get_user() == "0") ? " essentiel" : "" ?>">
                 <h3><i class="fas fa-people-arrows me-2"></i>Gérer mon désir</h3>
 
                 <div class="alert alert-danger" id="alert_danger" style="display: none;" role="alert">
@@ -46,19 +46,19 @@
                         <div class="text-start width-100">
                             <label class="edit-label" for="ideal_status_marital-input">Quel est sont statut marital ?</label>
                             <select name="ideal_status_marital" class="form-select edit-select" style="text-transform: inherit;">
-                                <option value="célibataire" <?= ($ideal_status_marital->get_user() == "célibataire") ? "selected" : "" ?>>Célibataire</option>
-                                <option value="séparée" <?= ($ideal_status_marital->get_user() == "séparée") ? "selected" : "" ?>>Séparée</option>
-                                <option value="veuf" <?= ($ideal_status_marital->get_user() == "veuf") ? "selected" : "" ?>>veuf</option>
-                                <option value="veuve" <?= ($ideal_status_marital->get_user() == "veuve") ? "selected" : "" ?>>veuve</option>
+                                <option value="celibataire" <?= ($ideal_status_marital->get_user() == "celibataire") ? "selected" : "" ?>>Célibataire</option>
+                                <option value="separee" <?= ($ideal_status_marital->get_user() == "separe") ? "selected" : "" ?>>Séparée</option>
+                                <option value="veuf" <?= ($ideal_status_marital->get_user() == "veuf") ? "selected" : "" ?>>Veuf</option>
+                                <option value="veuve" <?= ($ideal_status_marital->get_user() == "veuve") ? "selected" : "" ?>>Veuve</option>
                             </select>
                         </div>
 
                         <div class="text-start width-100">
                             <label class="edit-label" for="ideal_enfant-input">Il/Elle veut des enfants ?</label>
                             <select name="ideal_enfant" class="form-select edit-select" style="text-transform: inherit;">
-                                <option value="veut des enfants" <?= ($ideal_enfant->get_user() == "veut des enfants") ? "selected" : "" ?>>Veut des enfants</option>
-                                <option value="ne veut pas d'enfants" <?= ($ideal_enfant->get_user() == "ne veut pas d'enfants") ? "selected" : "" ?>>Ne veut pas d'enfants</option>
-                                <option value="rien n'est décidé" <?= ($ideal_enfant->get_user() == "rien n'est décidé") ? "selected" : "" ?>>Rien n'est décidé</option>
+                                <option value="oui" <?= ($ideal_enfant->get_user() == "oui") ? "selected" : "" ?>>Veut des enfants</option>
+                                <option value="non" <?= ($ideal_enfant->get_user() == "non") ? "selected" : "" ?>>Ne veut pas d'enfants</option>
+                                <option value="nsp" <?= ($ideal_enfant->get_user() == "nsp") ? "selected" : "" ?>>Rien n'est décidé</option>
                             </select>
                         </div>
 
@@ -98,10 +98,10 @@
                         <div class="text-start width-100">
                             <label class="edit-label" for="ideal_fume-input">Il/Elle fume ?</label>
                             <select name="ideal_fume" class="form-select edit-select" style="text-transform: inherit;">
-                                <option value="fume occasionnellement" <?= ($ideal_fume->get_user() == "fume occasionnellement") ? "selected" : "" ?>>Fume occasionnellement</option>
-                                <option value="fume régulièrement" <?= ($ideal_fume->get_user() == "fume régulièrement") ? "selected" : "" ?>>Fume régulièrement</option>
-                                <option value="essaye d'arrêter" <?= ($ideal_fume->get_user() == "essaye d'arrêter") ? "selected" : "" ?>>Essaye d'arrêter</option>
-                                <option value="ne fume pas" <?= ($ideal_fume->get_user() == "ne fume pas") ? "selected" : "" ?>>Ne fume pas</option>
+                                <option value="fume-occasionnellement" <?= ($ideal_fume->get_user() == "fume-occasionnellement") ? "selected" : "" ?>>Fume occasionnellement</option>
+                                <option value="fume-regulierement" <?= ($ideal_fume->get_user() == "fume-regulierement") ? "selected" : "" ?>>Fume régulièrement</option>
+                                <option value="essaye-d-arreter" <?= ($ideal_fume->get_user() == "essaye-darreter") ? "selected" : "" ?>>Essaye d'arrêter</option>
+                                <option value="ne-fume-pas" <?= ($ideal_fume->get_user() == "ne-fume-pas") ? "selected" : "" ?>>Ne fume pas</option>
                             </select>
                         </div>
 
@@ -112,22 +112,22 @@
                         <select name="ideal_loisirs" class="form-select edit-select" style="text-transform: inherit;">
                             <option value="" selected disabled>Faites un choix</option>
                             <option value="" disabled>--------------</option>
-                            <option value="aller au cinéma, au théâtre, à des concerts" <?= ($ideal_loisirs->get_user() == "aller au cinéma, au théâtre, à des concerts") ? "selected" : "" ?>>Aller au cinéma, au théâtre, à des concerts</option>
-                            <option value="pratiquer la spéléologie" <?= ($ideal_loisirs->get_user() == "pratiquer la spéléologie") ? "selected" : "" ?>>Pratiquer la spéléologie</option>
-                            <option value="participer à la rénovation d'une maison" <?= ($ideal_loisirs->get_user() == "pratiquer la spéléologie") ? "selected" : "" ?>>Participer à la rénovation d'une maison</option>
-                            <option value="aider un enfant à faire ses devoirs" <?= ($ideal_loisirs->get_user() == "aider un enfant à faire ses devoirs") ? "selected" : "" ?>>Aider un enfant à faire ses devoirs</option>
-                            <option value="pratiquer un sport régulièrement" <?= ($ideal_loisirs->get_user() == "pratiquer un sport régulièrement") ? "selected" : "" ?>>Pratiquer un sport régulièrement</option>
-                            <option value="jouer aux échecs, aux dames, à des jeux de stratégie" <?= ($ideal_loisirs->get_user() == "jouer aux échecs, aux dames, à des jeux de stratégie") ? "selected" : "" ?>>Jouer aux échecs, aux dames, à des jeux de stratégie</option>
-                            <option value="construire des maquettes" <?= ($ideal_loisirs->get_user() == "construire des maquettes") ? "selected" : "" ?>>Construire des maquettes</option>
-                            <option value="faire de la poterie, des bijoux, des objets décoratifs" <?= ($ideal_loisirs->get_user() == "faire de la poterie, des bijoux, des objets décoratifs") ? "selected" : "" ?>>Faire de la poterie, des bijoux, des objets décoratifs</option>
-                            <option value="etre secouriste, pompier bénévole" <?= ($ideal_loisirs->get_user() == "etre secouriste, pompier bénévole") ? "selected" : "" ?>>Etre secouriste, pompier bénévole</option>
-                            <option value="aller en montagne, faire de l'escalade" <?= ($ideal_loisirs->get_user() == "aller en montagne, faire de l'escalade") ? "selected" : "" ?>>Aller en montagne, faire de l'escalade</option>
+                            <option value="aller-au-cinema-au-theatre-a-des-concerts" <?= ($ideal_loisirs->get_user() == "aller-au-cinema-au-theatre-a-des-concerts") ? "selected" : "" ?>>Aller au cinéma, au théâtre, à des concerts</option>
+                            <option value="pratiquer-la-speleologie" <?= ($ideal_loisirs->get_user() == "pratiquer-la-speleologie") ? "selected" : "" ?>>Pratiquer la spéléologie</option>
+                            <option value="participer-a-la-renovation-d-une-maison" <?= ($ideal_loisirs->get_user() == "participer-a-la-renovation-d-une-maison") ? "selected" : "" ?>>Participer à la rénovation d'une maison</option>
+                            <option value="aider-un-enfant-a-faire-ses-devoirs" <?= ($ideal_loisirs->get_user() == "aider-un-enfant-a-faire-ses-devoirs") ? "selected" : "" ?>>Aider un enfant à faire ses devoirs</option>
+                            <option value="pratiquer-un-sport-regulierement" <?= ($ideal_loisirs->get_user() == "pratiquer-un-sport-regulierement") ? "selected" : "" ?>>Pratiquer un sport régulièrement</option>
+                            <option value="jouer-aux-echecs-aux-dames-a-des-jeux-de-strategie" <?= ($ideal_loisirs->get_user() == "jouer-aux-echecs-aux-dames-a-des-jeux-de-strategie") ? "selected" : "" ?>>Jouer aux échecs, aux dames, à des jeux de stratégie</option>
+                            <option value="construire-des-maquettes" <?= ($ideal_loisirs->get_user() == "construire-des-maquettes") ? "selected" : "" ?>>Construire des maquettes</option>
+                            <option value="faire-de-la-poterie-des-bijoux-des-objets-decoratifs" <?= ($ideal_loisirs->get_user() == "faire-de-la-poterie-des-bijoux-des-objets-decoratifs") ? "selected" : "" ?>>Faire de la poterie, des bijoux, des objets décoratifs</option>
+                            <option value="etre-secouriste-pompier-benevole" <?= ($ideal_loisirs->get_user() == "etre-secouriste-pompier-benevole") ? "selected" : "" ?>>Etre secouriste, pompier bénévole</option>
+                            <option value="aller-en-montagne-faire-de-l-escalade" <?= ($ideal_loisirs->get_user() == "aller-en-montagne-faire-de-l-escalade") ? "selected" : "" ?>>Aller en montagne, faire de l'escalade</option>
                             <option value="danser" <?= ($ideal_loisirs->get_user() == "danser") ? "selected" : "" ?>>Danser</option>
                             <option value="jardiner" <?= ($ideal_loisirs->get_user() == "jardiner") ? "selected" : "" ?>>Jardiner</option>
-                            <option value="surfer sur le web" <?= ($ideal_loisirs->get_user() == "surfer sur le web") ? "selected" : "" ?>>Surfer sur le web</option>
-                            <option value="faire du skate, du roller, du VTT" <?= ($ideal_loisirs->get_user() == "faire du skate, du roller, du VTT") ? "selected" : "" ?>>Faire du skate, du roller, du VTT</option>
-                            <option value="jouer aux jeux vidéo" <?= ($ideal_loisirs->get_user() == "jouer aux jeux vidéo") ? "selected" : "" ?>>Jouer aux jeux vidéo</option>
-                            <option value="balade en forêt" <?= ($ideal_loisirs->get_user() == "balade en forêt") ? "selected" : "" ?>>Balade en forêt</option>
+                            <option value="surfer-sur-le-web" <?= ($ideal_loisirs->get_user() == "surfer-sur-le-web") ? "selected" : "" ?>>Surfer sur le web</option>
+                            <option value="faire-du-skate-du-roller-du-VTT" <?= ($ideal_loisirs->get_user() == "faire-du-skate-du-roller-du-VTT") ? "selected" : "" ?>>Faire du skate, du roller, du VTT</option>
+                            <option value="jouer-aux-jeux-video" <?= ($ideal_loisirs->get_user() == "jouer-aux-jeux-video") ? "selected" : "" ?>>Jouer aux jeux vidéo</option>
+                            <option value="balade-en-foret" <?= ($ideal_loisirs->get_user() == "balade-en-foret") ? "selected" : "" ?>>Balade en forêt</option>
                         </select>
                     </div>
 

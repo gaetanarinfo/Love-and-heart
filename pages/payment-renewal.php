@@ -291,14 +291,14 @@
                         <div>
                             <form id="payment-form" class="formules_1" style="display: none;" action="ajax/ajax-create.php?formule=1" method="POST">
 
-                                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-locale="auto" data-key="pk_test_51Jc2kML6rsNO3EBkv0xFfVh8kTKHwDRz1OBYBaz3QjFerWv0CazTbfJPVxrf4p90oYL5adAjLVJozMXqoVnFE2lY00u9dgc4i3" data-amount="2490" data-currency="eur" data-name="Pass Premium" data-description="Pendant 6 MOIS*" data-image="<?= $static_img ?>51bb9f68b8b684dd91f6.png">
+                                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-locale="auto" data-key="pk_live_51Jc2kML6rsNO3EBkFUHLMbwqsWY68sSmsyZEbz3IYNjGdJC6IyW6rwrQWqQjQLwq4XolETke21h59tKJQfJIYHrK009KNK7QGT" data-amount="2490" data-currency="eur" data-name="Pass Premium" data-description="Pendant 6 MOIS*" data-image="<?= $static_img ?>51bb9f68b8b684dd91f6.png">
                                 </script>
 
                             </form>
 
                             <form id="payment-form" class="formules_2" style="display: none;" action="ajax/ajax-create.php?formule=2" method="POST">
 
-                                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-locale="auto" data-key="pk_test_51Jc2kML6rsNO3EBkv0xFfVh8kTKHwDRz1OBYBaz3QjFerWv0CazTbfJPVxrf4p90oYL5adAjLVJozMXqoVnFE2lY00u9dgc4i3" data-amount="2990" data-currency="eur" data-name="Pass Premium" data-description="Pendant 6 MOIS*" data-image="<?= $static_img ?>51bb9f68b8b684dd91f6.png">
+                                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-locale="auto" data-key="pk_live_51Jc2kML6rsNO3EBkFUHLMbwqsWY68sSmsyZEbz3IYNjGdJC6IyW6rwrQWqQjQLwq4XolETke21h59tKJQfJIYHrK009KNK7QGT" data-amount="2990" data-currency="eur" data-name="Pass Premium" data-description="Pendant 6 MOIS*" data-image="<?= $static_img ?>51bb9f68b8b684dd91f6.png">
                                 </script>
 
                             </form>

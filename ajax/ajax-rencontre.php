@@ -11,7 +11,7 @@ $result = selectDB('*', 'users', 'id = "' . $_SESSION['user_id'] . '"', $db, '1'
 // Select all users
 
 // $results = $db->query('SELECT u.*, u.id as id, ua.* FROM users u LEFT JOIN users_avatar ua ON u.id = ua.user_id AND ua.id = (SELECT ua1.id FROM users_avatar ua1 WHERE ua.user_id = ua1.user_id ORDER BY ua1.id DESC LIMIT 1) ORDER BY u.created_at, u.id DESC LIMIT 0,30');
-$results = selectDB('*', 'users', '1 ORDER BY id DESC', $db, '*');
+$results = selectDB('*', 'users', 'incognito != 1 AND id != "' . $_SESSION['user_id'] . '" ORDER BY created_at DESC, id DESC', $db, '*');
 
 // Select de l'avatar
 $result_avatar = selectDB('*', 'users_avatar', 'user_id = "' . $_SESSION['user_id'] . '" ORDER BY id DESC', $db, '1');
@@ -144,41 +144,52 @@ $users->set_var($results);
 
         <?php $result_favorites = selectDB('*', 'favorites', 'fav_user_id = "' . $data['id'] . '" ORDER BY id DESC', $db, '1');  ?>
 
-            <?php if ($data['id'] != $_SESSION['user_id']) { ?>
+        <?php if ($data['id'] != $_SESSION['user_id']) { ?>
 
-                <div class="card mb-2 mt-2 ms-2 me-2 empty_click_card empty_click_card_<?= $data['id'] ?> d-inline-block">
+            <div class="card mb-2 mt-2 ms-2 me-2 empty_click_card empty_click_card_<?= $data['id'] ?> d-inline-block">
 
-                    <div class="row">
+                <div class="row">
 
-                        <div class="col-md-4 avatar" data-id="<?= $data['id'] ?>">
-                            <?php if ($result_avatar['validation'] == 1) { ?>
-                                <img class="empty_avatar_<?= $data['id'] ?>" src="https://love-and-heart.fr/assets/uploads/<?= $result_avatar['value']; ?>" />
-                            <?php } else { ?>
-                                <img class="empty_avatar_<?= $data['id'] ?>" src="https://love-and-heart.fr/assets/uploads/default.png" />
-                            <?php } ?>
-                        </div>
-                        <div class="col-md-8 empty_click_card_desc empty_click_card_desc_<?= $data['id'] ?>">
-                            <div class="card-body">
-                                <h5 class="card-title"><a class="profil_link" href="/profil/<?= $data['prenom'] ?>"><?= $data['prenom'] ?></a>
-                                    <div class="float-end ">
-                                        <div class="ms-2 <?php if ($result_favorites['fav_user_id'] != $data['id']) { ?>hearts<?php } else { ?>hearts_cancel<?php } ?> d-inline-block" data-id="<?= $data['id'] ?>" data-user="<?= $_SESSION['user_id'] ?>">
-                                            <?php if ($result_favorites['fav_user_id'] != $data['id']) { ?><i class="far fa-heart heart_fa_<?= $data['id'] ?>" style="color: red;"></i><i class="fas fa-heart heart_fa2_<?= $data['id'] ?>" style="color: red; display: none;"></i><?php } else { ?>
-                                                <i class="fas fa-heart heart_fa2_<?= $data['id'] ?>" style="color: red;"></i><i class="fas fa-heart heart_fa_<?= $data['id'] ?>" style="color: red;display:none;"></i><?php } ?>
-                                        </div>
+                    <div class="col-md-4 avatar" data-id="<?= $data['id'] ?>">
+                        <?php if ($result_avatar['validation'] == 1) { ?>
+                            <img class="empty_avatar_<?= $data['id'] ?>" src="https://love-and-heart.fr/assets/uploads/<?= $result_avatar['value']; ?>" />
+                        <?php } else { ?>
+                            <img class="empty_avatar_<?= $data['id'] ?>" src="https://love-and-heart.fr/assets/uploads/default.png" />
+                        <?php } ?>
+                    </div>
+                    <div class="col-md-8 empty_click_card_desc empty_click_card_desc_<?= $data['id'] ?>">
+                        <div class="card-body">
+                            <h5 class="card-title"><a class="profil_link" href="/profil/<?= $data['prenom'] ?>"><?= $data['prenom'] ?></a><span class="ms-2">(<?= age($data['naissance']); ?> ans)</span><?php if ($data['premium'] == 2) { ?><span class="ms-2"><i class="fas fa-crown" style="color: gold;"></i></span><?php } ?>
+                                <div class="float-end ">
+                                    <div class="ms-2 <?php if ($result_favorites['fav_user_id'] != $data['id']) { ?>hearts<?php } else { ?>hearts_cancel<?php } ?> d-inline-block" data-id="<?= $data['id'] ?>" data-user="<?= $_SESSION['user_id'] ?>">
+                                        <?php if ($result_favorites['fav_user_id'] != $data['id']) { ?><i class="far fa-heart heart_fa_<?= $data['id'] ?>" style="color: red;"></i><i class="fas fa-heart heart_fa2_<?= $data['id'] ?>" style="color: red; display: none;"></i><?php } else { ?>
+                                            <i class="fas fa-heart heart_fa2_<?= $data['id'] ?>" style="color: red;"></i><i class="fas fa-heart heart_fa_<?= $data['id'] ?>" style="color: red;display:none;"></i><?php } ?>
+                                    </div>
 
-                                        <div class="me-2 ms-2 msg d-inline-block" data-id="<?= $data['id'] ?>">
+                                    <?php if ($data['connected'] != 3) { ?>
+
+                                        <div class="me-2 ms-2 msg show_msg d-inline-block" data-id="<?= $data['id'] ?>">
                                             <i class="far fa-comment-dots msg_fa_<?= $data['id'] ?>" style="color: #2bb412;"></i>
                                             <i class="fas fa-comment-dots msg_fa2_<?= $data['id'] ?>" style="color: #2bb412; display: none;"></i>
                                         </div>
-                                    </div>
-                                </h5>
-                                <p class="card-desc"><?= $data['ideal_demarquation'] ?></p>
-                                <p class="card-text"><small class="text-muted">Mise à jour il y a <?= set_minutes($data['updated_at']); ?></small></p>
-                            </div>
+
+                                    <?php } else { ?>
+
+                                        <div class="me-2 ms-2 msg d-inline-block">
+                                            <i class="far fa-comment-dots msg_fa_<?= $data['id'] ?>" style="color: red;"></i>
+                                            <i class="fas fa-comment-dots msg_fa2_<?= $data['id'] ?>" style="color: red; display: none;"></i>
+                                        </div>
+
+                                    <?php } ?>
+                                </div>
+                            </h5>
+                            <p class="card-desc"><?= $data['ideal_demarquation'] ?></p>
+                            <p class="card-text"><small class="text-muted">Mise à jour <?= set_minutes2($data['updated_at']); ?></small></p>
                         </div>
                     </div>
                 </div>
-            <?php } ?>
+            </div>
+        <?php } ?>
 
     <?php } ?>
 </div>

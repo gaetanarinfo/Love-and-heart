@@ -1,4 +1,5 @@
 <?php $result_favorites = selectDB('*', 'favorites', 'user_id = "' . $_SESSION['user_id'] . '" ORDER BY id DESC', $db, '*');  ?>
+<?php $result_message = selectDB('*', 'chat_message', 'user_send = "' . $_SESSION['user_id'] . '" ORDER BY id DESC', $db, '*');  ?>
 
 <div class="head">
 
@@ -9,7 +10,7 @@
             <div class="col-lg-12 m-auto text-center pt-4 pb_mobile">
 
                 <a href="/coup-de-coeur" class="btn btn-soeur btn-soeur-profil-heart mt-4 me-4 ms-4 mb-3"><i class="fas fa-heart me-2" style="color: red;"></i> Mes coup de coeur (<?= count($result_favorites) ?>)</a>
-                <a href="/coup-de-coeur" class="btn btn-soeur btn-soeur-profil-msg mt-4 me-4 ms-4 mb-3"><i class="far fa-comment-dots me-2" style="color: rgb(43, 180, 18);" aria-hidden="true"></i> Mes messages (<?= count($result_favorites) ?>)</a>
+                <a href="/coup-de-coeur" class="btn btn-soeur btn-soeur-profil-msg mt-4 me-4 ms-4 mb-3"><i class="far fa-comment-dots me-2" style="color: rgb(43, 180, 18);" aria-hidden="true"></i> Mes messages (<?= count($result_message) ?>)</a>
 
             </div>
         </div>
@@ -104,7 +105,7 @@
 
                 <h3 class="mt-4"><i class="fas fa-eye me-2"></i>Modifier votre visibilité</h3>
 
-                <div class="m-auto text-center">
+                <div class="m-auto text-center<?= ($premium->get_user() == "1") ? " essentiel" : "" ?><?= ($premium->get_user() == "0") ? " essentiel" : "" ?>">
                     <div class="form-check form-switch d-inline-block me-3">
                         <input class="form-check-input" type="checkbox" id="switch_zen" value="<?= ($zen->get_user() == 1) ? "1" : "0" ?>" <?= ($zen->get_user() == 1) ? "checked" : "" ?>>
                         <label class="form-check-label" for="switch_zen">Passez en mode « zen »</label>
@@ -120,3 +121,69 @@
         </div>
     </div>
 </div>
+
+<?php if ($premium->get_user() == "2") { ?>
+
+    <script>
+        $(document).on('change', '#switch_zen', function(e) {
+
+            e.preventDefault();
+
+            var check = $(this).is(':checked'),
+                value = 0;
+
+            if (check) {
+                $(this).val('1');
+                value = 1;
+            } else {
+                $(this).val('0');
+                value = 0;
+            }
+
+            $.ajax({
+                url: '../ajax/ajax-editVisibility.php',
+                type: 'post',
+                data: {
+                    etat: value,
+                    form: 1
+                },
+                cache: false,
+                success: function() {
+
+                }
+            });
+
+        })
+
+        $(document).on('change', '#switch_incognito', function(e) {
+
+            e.preventDefault();
+
+            var check = $(this).is(':checked'),
+                value = 0;
+
+            if (check) {
+                $(this).val('1');
+                value = 1;
+            } else {
+                $(this).val('0');
+                value = 0;
+            }
+
+            $.ajax({
+                url: '../ajax/ajax-editVisibility.php',
+                type: 'post',
+                data: {
+                    etat: value,
+                    form: 2
+                },
+                cache: false,
+                success: function() {
+
+                }
+            });
+
+        })
+    </script>
+
+<?php } ?>

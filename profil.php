@@ -9,11 +9,29 @@ if(empty($_SESSION['user_id'])) {
     header('Location: /');
 }
 
+$result_get = selectDB('*', 'users', 'id = "' . $_SESSION['id'] . '"', $db, '1');
+
+if($result_get['premium'] == "0") {
+    header('Location: /');
+}
+
+$result_empty = selectDB('*', 'users', 'id = "' . $_GET['id'] . '" ORDER BY id DESC', $db, '1');
+
+if(empty($result_empty['id'])) {
+    header('Location: /');
+}
+
 // Select de l'user
-$result = selectDB('*', 'users', 'id = "' . $_SESSION['user_id'] . '"', $db, '1');
+$result = selectDB('*', 'users', 'id = "' . $_GET['id'] . '"', $db, '1');
+
+
+if($result['incognito'] == "1") {
+    header('Location: /');
+}
+
 
 // Select de l'avatar
-$result_avatar = selectDB('*', 'users_avatar', 'user_id = "' . $_SESSION['user_id'] . '" ORDER BY created_at DESC', $db, '1');
+$result_avatar = selectDB('*', 'users_avatar', 'user_id = "' . $_GET['id']. '" ORDER BY created_at DESC', $db, '1');
 
 // Select de pays
 $result_pays = selectDB('*', 'pays', '1 ORDER BY id ASC', $db, '*');
@@ -78,15 +96,15 @@ $created_at->set_var($result['created_at']);
 $updated_at->set_var($result['updated_at']);
 $zen->set_var($result['zen']);
 $incognito->set_var($result['incognito']);
-$premium->set_var($result['premium']);
 
 $avatar->set_var($result_avatar['value']);
 $avatar_validation->set_var($result_avatar['validation']);
+$premium->set_var($result['premium']);
 
 include 'modules/header.php';
 
 include 'modules/navbar.php';
 
-include 'pages/gestion-photo.php';
+include 'pages/profil.php';
 
 include 'modules/footer.php';

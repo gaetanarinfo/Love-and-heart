@@ -111,11 +111,11 @@
             <div class="col-lg-6">
                 <div class="row gx-5 row-cols-1 row-cols-md-2">
                     <div class="col mb-5 h-100">
-                        <a href="" class="link_c status_marital_choice" data-id="célibataire">
+                        <a href="" class="link_c status_marital_choice" data-id="celibataire">
                             <p class="mb-3 mt-2">célibataire</p>
                         </a>
-                        <a href="" class="link_c status_marital_choice" data-id="séparée">
-                            <p class="mb-3">séparée</p>
+                        <a href="" class="link_c status_marital_choice" data-id="separe">
+                            <p class="mb-3">séparé</p>
                         </a>
                         <a href="" class="link_c status_marital_choice" data-id="veuve">
                             <p class="mb-3">veuve</p>
@@ -143,13 +143,13 @@
                 <div class="row">
                     <div class="col mb-5 h-100">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-0"><i class="fas fa-baby-carriage"></i></div>
-                        <a href="" class="link_c parent_choice" data-id="J'en ai">
+                        <a href="" class="link_c parent_choice" data-id="oui">
                             <p class="mb-3 mt-3">J'en ai</p>
                         </a>
                     </div>
                     <div class="col mb-5 h-100">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-0"><i class="fas fa-male"></i></div>
-                        <a href="" class="link_c parent_choice" data-id="Je n'en ai pas">
+                        <a href="" class="link_c parent_choice" data-id="non">
                             <p class="mb-3 mt-3">Je n'en ai pas</p>
                         </a>
                     </div>
@@ -172,14 +172,20 @@
                 <div class="row">
                     <div class="col mb-5 h-100">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-0"><i class="fas fa-check"></i></div>
-                        <a href="" class="link_c parent_envie_choice" data-id="J'en veux">
+                        <a href="" class="link_c parent_envie_choice" data-id="oui">
                             <p class="mb-3 mt-3">J'en veux</p>
                         </a>
                     </div>
                     <div class="col mb-5 h-100">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-0"><i class="fas fa-times"></i></div>
-                        <a href="" class="link_c parent_envie_choice" data-id="Je n'en veux pas">
+                        <a href="" class="link_c parent_envie_choice" data-id="non">
                             <p class="mb-3 mt-3">Je n'en veux pas</p>
+                        </a>
+                    </div>
+                    <div class="col mb-5 h-100">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-0"><i class="fas fa-times"></i></div>
+                        <a href="" class="link_c parent_envie_choice" data-id="nsp">
+                            <p class="mb-3 mt-3">rien n'est décidé</p>
                         </a>
                     </div>
                 </div>
@@ -581,22 +587,22 @@
                 <div class="row">
                     <div class="col mb-5 h-100">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="fas fa-smoking"></i></div>
-                        <a href="" class="link_c cigarette" data-id="fume occasionnellement">
+                        <a href="" class="link_c cigarette" data-id="fume-occasionnellement">
                             <p class="mb-3">fume occasionnellement</p>
                         </a>
 
-                        <a href="" class="link_c cigarette" data-id="fume régulièrement">
+                        <a href="" class="link_c cigarette" data-id="fume-regulierement">
                             <p class="mb-3">fume régulièrement</p>
                         </a>
 
-                        <a href="" class="link_c cigarette" data-id="essaye d'arrêter">
+                        <a href="" class="link_c cigarette" data-id="essaye-darreter">
                             <p class="mb-3">essaye d'arrêter</p>
                         </a>
                     </div>
 
                     <div class="col mb-5 h-100">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="fas fa-smoking-ban"></i></div>
-                        <a href="" class="link_c cigarette" data-id="ne fume pas">
+                        <a href="" class="link_c cigarette" data-id="ne-fume-pas">
                             <p class="mb-3">ne fume pas</p>
                         </a>
                     </div>
@@ -687,15 +693,15 @@
             <div class="col-lg-6 pt-2 pb-2">
                 <div class="row ideal">
                     <div class="col mb-5 h-100">
-                        <a href="" class="link_c ideal_status_marital" data-id="célibataire">
+                        <a href="" class="link_c ideal_status_marital" data-id="celibataire">
                             <p class="mb-3">célibataire</p>
                         </a>
 
-                        <a href="" class="link_c ideal_status_marital" data-id="séparé">
+                        <a href="" class="link_c ideal_status_marital" data-id="separe">
                             <p class="mb-3 mt-3">séparé</p>
                         </a>
 
-                        <a href="" class="link_c ideal_status_marital" data-id="divorcé">
+                        <a href="" class="link_c ideal_status_marital" data-id="divorce">
                             <p class="mb-3 mt-3">divorcé</p>
                         </a>
 
@@ -725,15 +731,15 @@
             <div class="col-lg-6 pt-2 pb-2">
                 <div class="row ideal">
                     <div class="col mb-5 h-100">
-                        <a href="" class="link_c ideal_enfant" data-id="veut des enfants">
+                        <a href="" class="link_c ideal_enfant" data-id="oui">
                             <p class="mb-3">veut des enfants</p>
                         </a>
 
-                        <a href="" class="link_c ideal_enfant" data-id="ne veut pas d'enfants">
+                        <a href="" class="link_c ideal_enfant" data-id="non">
                             <p class="mb-3 mt-3">ne veut pas d'enfants</p>
                         </a>
 
-                        <a href="" class="link_c ideal_enfant" data-id="rien n'est décidé">
+                        <a href="" class="link_c ideal_enfant" data-id="nsp">
                             <p class="mb-3 mt-3">rien n'est décidé</p>
                         </a>
                     </div>
@@ -839,19 +845,19 @@
             <div class="col-lg-6 pt-2 pb-2">
                 <div class="row ideal">
                     <div class="col mb-5 h-100">
-                        <a href="" class="link_c ideal_fume" data-id="ne fume pas">
+                        <a href="" class="link_c ideal_fume" data-id="ne-fume-pas">
                             <p class="mb-3">ne fume pas</p>
                         </a>
 
-                        <a href="" class="link_c ideal_fume" data-id="fume occasionnellement">
+                        <a href="" class="link_c ideal_fume" data-id="fume-occasionnellement">
                             <p class="mb-3 mt-3">fume occasionnellement</p>
                         </a>
 
-                        <a href="" class="link_c ideal_fume" data-id="fume régulièrement">
+                        <a href="" class="link_c ideal_fume" data-id="fume-regulierement">
                             <p class="mb-3 mt-3">fume régulièrement</p>
                         </a>
 
-                        <a href="" class="link_c ideal_fume" data-id="essaye d'arrêter">
+                        <a href="" class="link_c ideal_fume" data-id="essaye-darreter">
                             <p class="mb-3 mt-3">essaye d'arrêter</p>
                         </a>
                     </div>

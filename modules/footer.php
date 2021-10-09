@@ -5,7 +5,26 @@
 <?php include_once('modals/charte.php'); ?>
 <?php include_once('modals/securite.php'); ?>
 
+<?php if (!empty($_SESSION['user_id'])) {
+    include_once('chat-message.php');
+}
+?>
+
 <footer class="footer mt-auto py-3 bg-light" style="position: static;bottom: 0;width: 100%;">
+
+    <div class="container text-center">
+        <div class="social">
+            <h5>Suivez-nous sur les réseaux sociaux !</h5>
+
+            <div class="d-inline-block">
+                <a href="https://business.facebook.com/loveandheart72/" target="_blank"><img src="<?= $static_img ?>facebook.png" alt="Facebook" /></a>
+                <a href="https://twitter.com/Loveandheart42" target="_blank"><img class="ms-1" src="<?= $static_img ?>twitter.png" alt="Twitter" /></a>
+            </div>
+        </div>
+    </div>
+
+    <hr style="width: 70%;text-align: center;margin-left: auto;margin-right: auto;" />
+
     <div class="container text-center">
         <div class="footer_block">
             <p>Une visibilité étendue de votre profil : En créant votre profil sur Love and heart, celui-ci est visible sur les déclinaisons locales de notre service utilisant la même plateforme sous différentes marques. Pour plus d’informations sur les modalités de visibilité étendue de votre profil, cliquez ici.</p>
@@ -41,6 +60,13 @@
     <?php } ?>
 <?php } ?>
 
+<?php if ($_SERVER['REQUEST_URI'] == "/home") { ?>
+    <script src="<?= $static_url ?>js/home.js?<?= time() ?>" crossorigin="anonymous"></script>
+    <?php if (empty($_SESSION['user_id'])) { ?>
+        <script src="<?= $static_url ?>js/googleApi.js" crossorigin="anonymous"></script>
+    <?php } ?>
+<?php } ?>
+
 <?php if ($_SERVER['REQUEST_URI'] == "/welcome") { ?>
     <script src="<?= $static_url ?>js/welcome.js?<?= time() ?>" crossorigin="anonymous"></script>
 <?php } ?>
@@ -65,15 +91,15 @@
         <script src="<?= $static_url ?>js/gestion-profil.js?<?= time() ?>" crossorigin="anonymous"></script>
     <?php } ?>
 
-    <?php if ($_SERVER['REQUEST_URI'] == "/gestion-personnalite") { ?>
+    <?php if ($_SERVER['REQUEST_URI'] == "/gestion-personnalite" && $premium->get_user() != "0") { ?>
         <script src="<?= $static_url ?>js/gestion-personnalite.js?<?= time() ?>" crossorigin="anonymous"></script>
     <?php } ?>
 
-    <?php if ($_SERVER['REQUEST_URI'] == "/gestion-desir") { ?>
+    <?php if ($_SERVER['REQUEST_URI'] == "/gestion-desir" && $premium->get_user() != "0") { ?>
         <script src="<?= $static_url ?>js/gestion-desir.js?<?= time() ?>" crossorigin="anonymous"></script>
     <?php } ?>
 
-    <?php if ($_SERVER['REQUEST_URI'] == "/gestion-photo") { ?>
+    <?php if ($_SERVER['REQUEST_URI'] == "/gestion-photo" && $premium->get_user() != "0") { ?>
         <script src="<?= $static_url ?>js/gestion-photo.js?<?= time() ?>" crossorigin="anonymous"></script>
     <?php } ?>
 
@@ -91,6 +117,19 @@
 
     <?php if ($_SERVER['REQUEST_URI'] == "/coup-de-coeur") { ?>
         <script src="<?= $static_url ?>js/coup-de-coeur.js?<?= time() ?>" crossorigin="anonymous"></script>
+    <?php } ?>
+
+    <?php if ($_SERVER['REQUEST_URI'] == "/profil/" . $_GET['id']) { ?>
+        <script src="<?= $static_url ?>js/particles.js" crossorigin="anonymous"></script>
+        <script src="<?= $static_url ?>js/profil.js?<?= time() ?>" crossorigin="anonymous"></script>
+    <?php } ?>
+
+    <script src="<?= $static_url ?>js/chat-message.js?<?= time() ?>" crossorigin="anonymous"></script>
+
+<?php } else { ?>
+
+    <?php if ($_SERVER['REQUEST_URI'] == "/register") { ?>
+        <script src="<?= $static_url ?>js/register.js?<?= time() ?>" crossorigin="anonymous"></script>
     <?php } ?>
 
 <?php } ?>

@@ -13,7 +13,7 @@ if(empty($_SESSION['user_id'])) {
 $result = selectDB('*', 'users', 'id = "' . $_SESSION['user_id'] . '"', $db, '1');
 
 // Select de l'avatar
-$result_avatar = selectDB('*', 'users_avatar', 'user_id = "' . $_SESSION['user_id'] . '" ORDER BY id DESC', $db, '1');
+$result_avatar = selectDB('*', 'users_avatar', 'user_id = "' . $_SESSION['user_id'] . '" ORDER BY created_at DESC', $db, '1');
 
 class User {
     // Properties

@@ -15,7 +15,10 @@
         <a href="" class="btn btn-info btn-logout nav-mobile">Se déconnecter</a>
       </div>
     <?php } else { ?>
-      <a class="btn btn-primary btn-navbar show_login nav-mobile">Mon compte</a>
+      <div class="mobile-nav">
+        <a href="/register" class="btn btn-primary btn-navbar nav-mobile me-2">Crée un compte gratuitement</a>
+        <a class="btn btn-primary btn-navbar show_login nav-mobile">Mon compte</a>
+      </div>
     <?php } ?>
   </div>
 </nav>

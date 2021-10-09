@@ -1,3 +1,5 @@
+<?php if(!empty($_GET['id'])) $user = selectDB('*', 'users', 'id = "' . $_GET['id'] . '" ORDER BY id DESC', $db, '1');  ?>
+
 <!doctype html>
 
 <html lang="<?= $lang ?>">
@@ -61,6 +63,14 @@
       $title = "Love and heart.fr - Page erreur 404";
       break;
 
+    case '/profil/' . $user['id']:
+      $title = "Love and heart.fr - Profil de " . $user['prenom'];
+      break;
+
+    case '/register':
+      $title = "Love and heart.fr - Crée un compte gratuitement";
+      break;
+
     default:
       $title = "Love and heart.fr - Site de Rencontre - Recherche de l’âme sœur";
       break;
@@ -106,6 +116,10 @@
 
   <!-- Home -->
   <?php if ($_SERVER['REQUEST_URI'] == "/") { ?>
+    <link href="<?= $static_url ?>css/home.css?<?= time() ?>" rel="stylesheet" type="text/css" />
+  <?php } ?>
+
+  <?php if ($_SERVER['REQUEST_URI'] == "/home") { ?>
     <link href="<?= $static_url ?>css/home.css?<?= time() ?>" rel="stylesheet" type="text/css" />
   <?php } ?>
 
@@ -175,8 +189,16 @@
       <link href="<?= $static_url ?>css/coup-de-coeur.css?<?= time() ?>" rel="stylesheet" type="text/css" />
     <?php } ?>
 
+    <?php if ($_SERVER['REQUEST_URI'] == "/profil/" . $_GET['id']) { ?>
+      <link href="<?= $static_url ?>css/profil.css?<?= time() ?>" rel="stylesheet" type="text/css" />
+    <?php } ?>
 
   <?php } ?>
+
+  <?php if ($_SERVER['REQUEST_URI'] == "/register") { ?>
+      <link href="<?= $static_url ?>css/register.css?<?= time() ?>" rel="stylesheet" type="text/css" />
+    <?php } ?>
+    
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
 
@@ -217,8 +239,6 @@
       "logo": "https://love-and-heart.fr/assets/logo.png"
     }
   </script>
-
-  <script data-ad-client="pub-4139181293520081" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TV9SD7BM7X"></script>
@@ -273,3 +293,5 @@
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTJW8TF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+
+  <script data-ad-client="ca-pub-4139181293520081" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

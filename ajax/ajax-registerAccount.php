@@ -41,80 +41,12 @@ if (!empty($_POST)) {
             $db->query('INSERT INTO `users`(
                     `id`,
                     `email`,
-                    `password`,
-                    `prenom`,
-                    `ville`,
-                    `naissance`,
-                    `recherche`,
-                    `je_suis`,
-                    `partage`,
-                    `status_marital`,
-                    `parent`,
-                    `parent_envie`,
-                    `niveau_etude`,
-                    `taille_adulte`,
-                    `poids_adulte`,
-                    `cheveux_adulte`,
-                    `cheveux_color_adulte`,
-                    `origine`,
-                    `nationalite`,
-                    `religion`,
-                    `cigarette`,
-                    `ideal_age_day`,
-                    `ideal_age_byday`,
-                    `ideal_status_marital`,
-                    `ideal_enfant`,
-                    `ideal_taille`,
-                    `ideal_poids`,
-                    `ideal_fume`,
-                    `ideal_demarquation`,
-                    `created_at`
+                    `password`
                     ) VALUES (
                     NULL,
                     "' . $_POST['email'] . '",
                     "' . $password_encode . '",
-                    "' . $_POST['prenom'] . '",
-                    "' . $_POST['ville'] . '",
-                    "' . $_POST['naissance'] . '",
-                    "' . $_POST['recherche'] . '",
-                    "' . $_POST['je_suis'] . '",
-                    "' . $_POST['partage'] . '",
-                    "' . $_POST['status_marital'] . '",
-                    "' . $_POST['parent'] . '",
-                    "' . $_POST['parent_envie'] . '",
-                    "' . $_POST['niveau_etude'] . '",
-                    "' . $_POST['taille_adulte'] . '",
-                    "' . $_POST['poids_adulte'] . '",
-                    "' . $_POST['cheveux_adulte'] . '",
-                    "' . $_POST['cheveux_color_adulte'] . '",
-                    "' . $_POST['origine'] . '",
-                    "' . $_POST['nationalite'] . '",
-                    "' . $_POST['religion'] . '",
-                    "' . $_POST['cigarette'] . '",
-                    "' . $_POST['ideal_age_day'] . '",
-                    "' . $_POST['ideal_age_byday'] . '",
-                    "' . $_POST['ideal_status_marital'] . '",
-                    "' . $_POST['ideal_enfant'] . '",
-                    "' . $_POST['ideal_taille'] . '",
-                    "' . $_POST['ideal_poids'] . '",
-                    "' . $_POST['ideal_fume'] . '",
-                    "' . $_POST['ideal_demarquation'] . '",
-                    "' . $created_at . '"
                     )');
-
-            $count = $verif_email['id'] + 1;
-
-            $db->query('INSERT INTO `users_avatar`(
-                        `id`,
-                        `user_id`,
-                        `value`,
-                        `created_at`
-                        ) VALUES (
-                        NULL,
-                        "' . $count . '",
-                        "' . $_POST['avatar'] . '",
-                        "' . date('Y-m-d H:i:s') . '"
-                        )');
 
             $from         = 'contact@love-and-heart.fr';
             $from_name     = 'Love and heart';

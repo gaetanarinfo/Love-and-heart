@@ -29,7 +29,9 @@ if ($_FILES['photo']) {
 
          echo $final_image;
 
-         $db->query('INSERT INTO `users_avatar`(
+         if (!empty($_SESSION['user_id'])) {
+
+            $db->query('INSERT INTO `users_avatar`(
             `id`,
             `user_id`,
             `value`,
@@ -41,6 +43,25 @@ if ($_FILES['photo']) {
             "' . date('Y-m-d H:i:s') . '"
             )');
 
+         }else{
+
+            $verif_users = selectDB('*', 'users', '1 ORDER BY id DESC', $db, '1');
+
+            $count = $verif_users['id'] + 1;
+
+            $db->query('INSERT INTO `users_avatar`(
+               `id`,
+               `user_id`,
+               `value`,
+               `created_at`
+               ) VALUES (
+               NULL,
+               "' . $count . '",
+               "' . $final_image . '",
+               "' . date('Y-m-d H:i:s') . '"
+               )');
+
+         }
 
       }
    } else {
